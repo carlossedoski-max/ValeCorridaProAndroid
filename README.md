@@ -43,9 +43,6 @@ Todos podem ser alterados pela tela inicial.
 
 Uber e 99 podem mudar a posição e a redação dos dados. O parser inicial considera o primeiro valor em reais, até duas distâncias em quilômetros e até dois tempos em minutos. Os testes reais devem registrar somente o texto reconhecido, sem dados pessoais ou imagens, para ajustar as regras de cada tela.
 
-## Integração Base44
-
-O MVP mantém os critérios localmente para garantir resposta rápida e funcionamento sem internet. A próxima etapa é criar no Base44 um endpoint autenticado que retorne somente as configurações do usuário. O Android baixa as configurações ao iniciar, mas continua calculando localmente.
 
 ## Privacidade e distribuição
 
