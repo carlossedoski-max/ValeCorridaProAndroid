@@ -1,0 +1,16 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/build
+
+# Protecao de arquivos locais e credenciais
+*.jks
+*.keystore
+.env
+.env.*
+!.env.example
