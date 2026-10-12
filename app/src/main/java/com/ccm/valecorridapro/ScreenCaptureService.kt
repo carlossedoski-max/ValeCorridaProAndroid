@@ -283,6 +283,11 @@ class ScreenCaptureService : Service() {
         )
             .addOnSuccessListener { result ->
 
+                android.util.Log.d(
+                    "VALE_OCR",
+                    "TEXTO CAPTURADO:\n${result.text}"
+                )
+
                 val offer =
                     RideOfferParser.parse(result.text)
 
@@ -330,10 +335,10 @@ class ScreenCaptureService : Service() {
                             // Mostra a nova avaliação
                             overlay.show(evaluation)
 
-                            // Remove após 5 segundos
+                            // Remove após 12 segundos
                             mainHandler.postDelayed(
                                 hideOverlayRunnable,
-                                8_000L
+                                12_000L
                             )
                         }
                     }

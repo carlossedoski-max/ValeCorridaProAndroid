@@ -32,7 +32,6 @@ class OverlayController(
         val root = view ?: return
 
         val title = root.findViewById<TextView>(R.id.decisionText)
-        val offerPrice = root.findViewById<TextView>(R.id.offerPriceText)
         val valuePerKm = root.findViewById<TextView>(R.id.valuePerKmText)
         val totalKm = root.findViewById<TextView>(R.id.totalKmText)
         val passengerRating =
@@ -80,11 +79,6 @@ class OverlayController(
         )
 
 
-        offerPrice.text = String.format(
-            Locale("pt", "BR"),
-            "R$ %.2f",
-            evaluation.offer.price
-        )
 
         valuePerKm.text = String.format(
             Locale("pt", "BR"),
@@ -98,16 +92,31 @@ class OverlayController(
             evaluation.offer.totalKm
         )
 
-        passengerRating.text =
-            evaluation.offer.passengerRating?.let {
-                String.format(Locale("pt", "BR"), "⭐ %.2f", it)
-            } ?: "⭐ --"
+        val rating = evaluation.offer.passengerRating
+
+        passengerRating.text = rating?.let {
+            String.format(
+                Locale("pt", "BR"),
+                "⭐ NOTA DO PASSAGEIRO: %.2f",
+                it
+            )
+        } ?: "⭐ NOTA DO PASSAGEIRO: --"
+
+        passengerRating.setTextColor(
+            when {
+                rating == null -> Color.WHITE
+                rating >= 4.80 -> Color.rgb(100, 255, 150)
+                rating >= 4.50 -> Color.rgb(255, 210, 70)
+                else -> Color.rgb(255, 100, 100)
+            }
+        )
 
         details.text = String.format(
             Locale("pt", "BR"),
             "Busca: %.1f km",
             evaluation.offer.pickupKm
         )
+
 
         acceptButton.setOnClickListener {
             onDecision(evaluation, RideStatus.ACCEPTED_PENDING)
@@ -146,7 +155,6 @@ class OverlayController(
 
         val collapsibleViews = listOf(
             root.findViewById<View>(R.id.decisionText),
-            root.findViewById<View>(R.id.offerPriceText).parent as View,
             root.findViewById<View>(R.id.totalKmText).parent.parent as View,
             root.findViewById<View>(R.id.detailsText),
             root.findViewById<View>(R.id.overlayActions)
