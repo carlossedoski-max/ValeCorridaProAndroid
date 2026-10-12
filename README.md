@@ -1,6 +1,6 @@
 # Vale Corrida Pro Android
 
-Protótipo Android complementar ao painel Base44. O app captura a tela com autorização explícita, reconhece textos de ofertas exibidas pela Uber ou 99, calcula os indicadores localmente e exibe uma sobreposição colorida. Ele não toca, aceita ou recusa corridas.
+Protótipo Android. O app captura a tela com autorização explícita, reconhece textos de ofertas exibidas pela Uber ou 99, calcula os indicadores localmente e exibe uma sobreposição colorida. Ele não toca, aceita ou recusa corridas.
 
 ## Recursos incluídos
 
@@ -9,8 +9,7 @@ Protótipo Android complementar ao painel Base44. O app captura a tela com autor
 - Leitura heurística de valor, quilômetros e minutos
 - Cálculo de R$/km e R$/hora
 - Critérios editáveis no celular
-- Sobreposição verde, amarela ou vermelha
-- Atalho para o painel Base44
+- Sobreposição verde, amarela ou vermelho
 - Nenhuma imagem é armazenada ou enviada
 
 ## Abrir no Android Studio
